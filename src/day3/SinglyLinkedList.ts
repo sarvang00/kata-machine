@@ -34,8 +34,21 @@ export default class SinglyLinkedList<T> {
         } else if(idx==0) {
             let tmp = this.root
             this.root = new Node(item, tmp);
+            this.length+=1;
         } else {
             let current = this.root;
+            for (let i=1; i<this.length+1; i++) {
+                if (i==idx) {
+                    let tmp = current?.next;
+                    if (current!=undefined) {
+                        current.next = new Node(item, tmp);
+                    } else {
+                        current = new Node(item, tmp);
+                    }
+                }
+                current = current?.next;
+            }
+            this.length+=1;
         }
     }
     append(item: T): void {
