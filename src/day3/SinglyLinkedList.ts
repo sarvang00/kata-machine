@@ -63,7 +63,8 @@ export default class SinglyLinkedList<T> {
             if (current != undefined) {
                 current.next = newNode;
             } else {
-                current = newNode;
+                // Something went wrong
+                return ;
             }
         }
         this.length += 1;
